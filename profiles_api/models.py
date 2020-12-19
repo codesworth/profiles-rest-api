@@ -25,7 +25,7 @@ class UserProfileManager(BaseUserManager):
         user = self.create_user(email,name,password)
         user.is_superuser = True
         user.is_staff = True
-        user.save(self._db)
+        user.save(using=self._db)
 
 class UserProfile(AbstractBaseUser, PermissionsMixin):
     """Databse Model for users in the system"""
